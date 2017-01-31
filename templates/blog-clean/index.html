@@ -1,0 +1,27 @@
+{% extends 'blog-clean/base.html' %}
+{% block body %}
+<!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            {% load paginate_tags %}
+            {% paginate article_list 2 %}
+            {% for article in article_list %}
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-preview">
+                    <a href="{% url 'blog:detail' article.pk %}">
+                        <h2 class="post-title">
+                            {{ article.title }}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{ article.abstract }}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Publicado em {{ article.created_time }}</p>
+                </div>
+                </div>
+            {% endfor %}
+            {% include 'blog/pagination.html' %}
+
+        </div>
+    </div>
+{% endblock %}

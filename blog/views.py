@@ -10,7 +10,7 @@ from .forms import BlogCommentForm
 
 # Create your views here.
 class IndexView(ListView):
-    template_name = "blog/index.html"
+    template_name = "blog-clean/index.html"
     context_object_name = "article_list"
 
     def get_queryset(self):
@@ -28,7 +28,7 @@ class IndexView(ListView):
 
 class ArticleDetailView(DetailView):
     model = Article
-    template_name = "blog/detail.html"
+    template_name = "blog-clean/detail.html"
     context_object_name = "article"
     pk_url_kwarg = 'article_id'
 
