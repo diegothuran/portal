@@ -1,6 +1,6 @@
 <div class="comment">
     <div class="comment-main">
-        <p class="head">评论详情</p>
+        <p class="head">Detalhes do comentário:</p>
         <form method="post" action="{% url 'blog:comment' article.pk %}">
             {% csrf_token %}
             <div class="row">
@@ -10,9 +10,9 @@
                     <br>
                 {% endfor %}
             </div>
-            <button type="submit" class="com-button">评论</button>
+            <button type="submit" class="com-button">Enviar</button>
         </form>
-        <p class="comment-count">共{{ 0 }}条评论</p>
+        <p class="comment-count">Este post possui {{ 0 }} comentários</p>
         <hr>
         {% for comment in comment_list %}
             <div class="main-content">
